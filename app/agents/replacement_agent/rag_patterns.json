@@ -1,0 +1,690 @@
+[
+    {
+        "id": "LITERAL_ME21_to_ME21N",
+        "description": "Replace any literal 'ME21' with 'ME21N'.",
+        "type": "regex",
+        "pattern": "'ME21'",
+        "case_sensitive": false,
+        "suggested_replacement": "'ME21N'"
+    },
+    {
+        "id": "LITERAL_MSC1_to_MSC1N",
+        "description": "Replace any literal 'MSC1' with 'MSC1N'.",
+        "type": "regex",
+        "pattern": "'MSC1'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MSC1N'"
+    },
+    {
+        "id": "LITERAL_MSC2_to_MSC2N",
+        "description": "Replace any literal 'MSC2' with 'MSC2N'.",
+        "type": "regex",
+        "pattern": "'MSC2'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MSC2N'"
+    },
+    {
+        "id": "LITERAL_MSC3_to_MSC3N",
+        "description": "Replace any literal 'MSC3' with 'MSC3N'.",
+        "type": "regex",
+        "pattern": "'MSC3'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MSC3N'"
+    },
+    {
+        "id": "LITERAL_MSC4_to_MSC4N",
+        "description": "Replace any literal 'MSC4' with 'MSC4N'.",
+        "type": "regex",
+        "pattern": "'MSC4'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MSC4N'"
+    },
+    {
+        "id": "LITERAL_MB01_to_MIGO",
+        "description": "Replace any literal 'MB01' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB01'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MB02_to_MIGO",
+        "description": "Replace any literal 'MB02' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB02'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MB03_to_MIGO",
+        "description": "Replace any literal 'MB03' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB03'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MB04_to_MIGO",
+        "description": "Replace any literal 'MB04' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB04'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MB05_to_MIGO",
+        "description": "Replace any literal 'MB05' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB05'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MB0A_to_MIGO",
+        "description": "Replace any literal 'MB0A' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB0A'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MB11_to_MIGO",
+        "description": "Replace any literal 'MB11' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB11'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MB1A_to_MIGO",
+        "description": "Replace any literal 'MB1A' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB1A'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MB1B_to_MIGO",
+        "description": "Replace any literal 'MB1B' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB1B'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MB1C_to_MIGO",
+        "description": "Replace any literal 'MB1C' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB1C'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MB31_to_MIGO",
+        "description": "Replace any literal 'MB31' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB31'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MBNL_to_MIGO",
+        "description": "Replace any literal 'MBNL' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MBNL'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MBRL_to_MIGO",
+        "description": "Replace any literal 'MBRL' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MBRL'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MBSF_to_MIGO",
+        "description": "Replace any literal 'MBSF' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MBSF'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MBSL_to_MIGO",
+        "description": "Replace any literal 'MBSL' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MBSL'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MBST_to_MIGO",
+        "description": "Replace any literal 'MBST' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MBST'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MBSU_to_MIGO",
+        "description": "Replace any literal 'MBSU' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MBSU'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_XD01_to_BP",
+        "description": "Replace any literal 'XD01' with 'BP'.",
+        "type": "regex",
+        "pattern": "'XD01'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_XD02_to_BP",
+        "description": "Replace any literal 'XD02' with 'BP'.",
+        "type": "regex",
+        "pattern": "'XD02'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_XD03_to_BP",
+        "description": "Replace any literal 'XD03' with 'BP'.",
+        "type": "regex",
+        "pattern": "'XD03'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_XD05_to_BP",
+        "description": "Replace any literal 'XD05' with 'BP'.",
+        "type": "regex",
+        "pattern": "'XD05'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_XD06_to_BP",
+        "description": "Replace any literal 'XD06' with 'BP'.",
+        "type": "regex",
+        "pattern": "'XD06'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_XD07_to_BP",
+        "description": "Replace any literal 'XD07' with 'BP'.",
+        "type": "regex",
+        "pattern": "'XD07'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VD01_to_BP",
+        "description": "Replace any literal 'VD01' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VD01'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VD03_to_BP",
+        "description": "Replace any literal 'VD03' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VD03'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VD05_to_BP",
+        "description": "Replace any literal 'VD05' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VD05'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VD06_to_BP",
+        "description": "Replace any literal 'VD06' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VD06'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VK01_to_BP",
+        "description": "Replace any literal 'VK01' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VK01'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VK02_to_BP",
+        "description": "Replace any literal 'VK02' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VK02'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VK03_to_BP",
+        "description": "Replace any literal 'VK03' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VK03'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VK05_to_BP",
+        "description": "Replace any literal 'VK05' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VK05'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VK06_to_BP",
+        "description": "Replace any literal 'VK06' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VK06'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VK07_to_BP",
+        "description": "Replace any literal 'VK07' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VK07'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MK01_to_BP",
+        "description": "Replace any literal 'MK01' with 'BP'.",
+        "type": "regex",
+        "pattern": "'MK01'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MK02_to_BP",
+        "description": "Replace any literal 'MK02' with 'BP'.",
+        "type": "regex",
+        "pattern": "'MK02'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MK03_to_BP",
+        "description": "Replace any literal 'MK03' with 'BP'.",
+        "type": "regex",
+        "pattern": "'MK03'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MK05_to_BP",
+        "description": "Replace any literal 'MK05' with 'BP'.",
+        "type": "regex",
+        "pattern": "'MK05'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MK06_to_BP",
+        "description": "Replace any literal 'MK06' with 'BP'.",
+        "type": "regex",
+        "pattern": "'MK06'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MK12_to_BP",
+        "description": "Replace any literal 'MK12' with 'BP'.",
+        "type": "regex",
+        "pattern": "'MK12'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MK18_to_BP",
+        "description": "Replace any literal 'MK18' with 'BP'.",
+        "type": "regex",
+        "pattern": "'MK18'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MK19_to_BP",
+        "description": "Replace any literal 'MK19' with 'BP'.",
+        "type": "regex",
+        "pattern": "'MK19'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_FK01_to_BP",
+        "description": "Replace any literal 'FK01' with 'BP'.",
+        "type": "regex",
+        "pattern": "'FK01'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_FK02_to_BP",
+        "description": "Replace any literal 'FK02' with 'BP'.",
+        "type": "regex",
+        "pattern": "'FK02'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_FK03_to_BP",
+        "description": "Replace any literal 'FK03' with 'BP'.",
+        "type": "regex",
+        "pattern": "'FK03'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_FK05_to_BP",
+        "description": "Replace any literal 'FK05' with 'BP'.",
+        "type": "regex",
+        "pattern": "'FK05'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_FK06_to_BP",
+        "description": "Replace any literal 'FK06' with 'BP'.",
+        "type": "regex",
+        "pattern": "'FK06'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_FD01_to_BP",
+        "description": "Replace any literal 'FD01' with 'BP'.",
+        "type": "regex",
+        "pattern": "'FD01'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_FD02_to_BP",
+        "description": "Replace any literal 'FD02' with 'BP'.",
+        "type": "regex",
+        "pattern": "'FD02'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_FD03_to_BP",
+        "description": "Replace any literal 'FD03' with 'BP'.",
+        "type": "regex",
+        "pattern": "'FD03'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_FD0_to_BP",
+        "description": "Replace any literal 'FD0' with 'BP'.",
+        "type": "regex",
+        "pattern": "'FD0'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_FD05_to_BP",
+        "description": "Replace any literal 'FD05' with 'BP'.",
+        "type": "regex",
+        "pattern": "'FD05'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_FD06_to_BP",
+        "description": "Replace any literal 'FD06' with 'BP'.",
+        "type": "regex",
+        "pattern": "'FD06'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_V-03_to_BP",
+        "description": "Replace any literal 'V-03' with 'BP'.",
+        "type": "regex",
+        "pattern": "'V-03'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_V-04_to_BP",
+        "description": "Replace any literal 'V-04' with 'BP'.",
+        "type": "regex",
+        "pattern": "'V-04'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_V-05_to_BP",
+        "description": "Replace any literal 'V-05' with 'BP'.",
+        "type": "regex",
+        "pattern": "'V-05'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_V-06_to_BP",
+        "description": "Replace any literal 'V-06' with 'BP'.",
+        "type": "regex",
+        "pattern": "'V-06'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_V-07_to_BP",
+        "description": "Replace any literal 'V-07' with 'BP'.",
+        "type": "regex",
+        "pattern": "'V-07'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_V-08_to_BP",
+        "description": "Replace any literal 'V-08' with 'BP'.",
+        "type": "regex",
+        "pattern": "'V-08'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_V-09_to_BP",
+        "description": "Replace any literal 'V-09' with 'BP'.",
+        "type": "regex",
+        "pattern": "'V-09'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_V-11_to_BP",
+        "description": "Replace any literal 'V-11' with 'BP'.",
+        "type": "regex",
+        "pattern": "'V-11'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_V+21_to_BP",
+        "description": "Replace any literal 'V+21' with 'BP'.",
+        "type": "regex",
+        "pattern": "'V+21'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_V+22_to_BP",
+        "description": "Replace any literal 'V+22' with 'BP'.",
+        "type": "regex",
+        "pattern": "'V+22'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_V+23_to_BP",
+        "description": "Replace any literal 'V+23' with 'BP'.",
+        "type": "regex",
+        "pattern": "'V+23'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MAP1_to_BP",
+        "description": "Replace any literal 'MAP1' with 'BP'.",
+        "type": "regex",
+        "pattern": "'MAP1'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MAP2_to_BP",
+        "description": "Replace any literal 'MAP2' with 'BP'.",
+        "type": "regex",
+        "pattern": "'MAP2'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MAP3_to_BP",
+        "description": "Replace any literal 'MAP3' with 'BP'.",
+        "type": "regex",
+        "pattern": "'MAP3'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VAP1_to_BP",
+        "description": "Replace any literal 'VAP1' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VAP1'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VAP2_to_BP",
+        "description": "Replace any literal 'VAP2' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VAP2'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_VAP3_to_BP",
+        "description": "Replace any literal 'VAP3' with 'BP'.",
+        "type": "regex",
+        "pattern": "'VAP3'",
+        "case_sensitive": false,
+        "suggested_replacement": "'BP'"
+    },
+    {
+        "id": "LITERAL_MARC_to_NSDM_V_MARC",
+        "description": "Replace any literal 'MARC' with 'NSDM_V_MARC'.",
+        "type": "regex",
+        "pattern": "MARC",
+        "case_sensitive": false,
+        "suggested_replacement": "NSDM_V_MARC"
+    },
+    {
+        "id": "LITERAL_MARD_to_NSDM_V_MARD",
+        "description": "Replace any literal 'MARD' with 'NSDM_V_MARD'.",
+        "type": "regex",
+        "pattern": "MARD",
+        "case_sensitive": false,
+        "suggested_replacement": "NSDM_V_MARD"
+    },
+    {
+        "id": "LITERAL_MKPF_to_MATDOC",
+        "description": "Replace any literal 'MKPF' with 'MATDOC'.",
+        "type": "regex",
+        "pattern": "MKPF",
+        "case_sensitive": false,
+        "suggested_replacement": "MATDOC"
+    },
+    {
+        "id": "LITERAL_MSEG_to_MATDOC",
+        "description": "Replace any literal 'MSEG' with 'MATDOC'.",
+        "type": "regex",
+        "pattern": "MSEG",
+        "case_sensitive": false,
+        "suggested_replacement": "MATDOC"
+    },
+    {
+        "id": "LITERAL_MSLB_to_NSDM_V_MSLB",
+        "description": "Replace any literal 'MSLB' with 'NSDM_V_MSLB'.",
+        "type": "regex",
+        "pattern": "MSLB",
+        "case_sensitive": false,
+        "suggested_replacement": "NSDM_V_MSLB"
+    },
+    {
+        "id": "LITERAL_MB1A_to_MIGO",
+        "description": "Replace any literal 'MB1A' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB1A'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "LITERAL_MB1B_to_MIGO",
+        "description": "Replace any literal 'MB1B' with 'MIGO'.",
+        "type": "regex",
+        "pattern": "'MB1B'",
+        "case_sensitive": false,
+        "suggested_replacement": "'MIGO'"
+    },
+    {
+        "id": "RULE4_DESCRIBE_FIELD_LENGTH_TO_STRLEN",
+        "description": "Replace DESCRIBE FIELD ... LENGTH ... with runtime-safe strlen( ) to determine the actual content length (character mode).",
+        "type": "regex",
+        "pattern": "DESCRIBE\\s+FIELD\\s+([A-Za-z_<>&/\\-][\\w<>&/\\-]*)\\s+LENGTH\\s+([A-Za-z_\\-][\\w\\-]*)(?:\\s+IN\\s+CHARACTER\\s+MODE)?\\s*\\.",
+        "case_sensitive": false,
+        "suggested_replacement": "$2 = strlen( $1 )."
+    },
+    {
+        "id": "RULE4_DESCRIBE_TABLE_LINES_TO_LINES_FUNC",
+        "description": "Replace DESCRIBE TABLE ... LINES ... with the built-in lines( ) function.",
+        "type": "regex",
+        "pattern": "DESCRIBE\\s+TABLE\\s+([A-Za-z_/\\-][\\w/\\-]*)\\s+LINES\\s+([A-Za-z_\\-][\\w\\-]*)\\s*\\.",
+        "case_sensitive": false,
+        "suggested_replacement": "$2 = lines( $1 )."
+    },
+    {
+        "id": "RULE5_OFFSET_LENGTH_TO_SUBSTRING",
+        "description": "Replace classic ABAP offset/length notation v+off(len) anywhere with substring(). Declare a helper variable and use it wherever the offset expression was previously used. Replace all occurrences of \"$1+$2($3)\" with lv_sub_$2_$3.",
+        "type": "regex",
+        "pattern": "([A-Za-z_<>&/][\\w/<>&-]*(?:-[\\w/<>&-]+)?)\\s*\\+\\s*(\\d+)\\s*\\(\\s*(\\d+)\\s*\\)",
+        "case_sensitive": false,
+        "suggested_replacement": "DATA lv_sub_$2_$3 TYPE c LENGTH $3. lv_sub_$2_$3 = substring( val = $1 off = $2 len = $3 )."
+    },
+    {
+        "id": "RULE6_CONCATENATE_WITH_SEPARATOR_TO_TEMPLATE",
+        "description": "Replace CONCATENATE ... INTO var SEPARATED BY sep with a string template using '&&' and the separator inserted between parts.",
+        "type": "regex",
+        "pattern": "CONCATENATE\\s+([\\s\\S]+?)\\s+INTO\\s+([A-Za-z_\\-][\\w\\-]*)\\s+SEPARATED\\s+BY\\s+([\\s\\S]+?)\\s*\\.",
+        "case_sensitive": false,
+        "suggested_replacement": "$2 = |{ part1 && $3 && part2 && $3 && ... }|."
+    },
+    {
+        "id": "RULE6_CONCATENATE_TO_TEMPLATE",
+        "description": "Replace CONCATENATE ... INTO var (no SEPARATED BY) with a string template joining parts directly.",
+        "type": "regex",
+        "pattern": "CONCATENATE\\s+([\\s\\S]+?)\\s+INTO\\s+([A-Za-z_\\-][\\w\\-]*)\\s*\\.",
+        "case_sensitive": false,
+        "suggested_replacement": "$2 = |{ part1 }{ part2 }{ part3 }|."
+    }
+]

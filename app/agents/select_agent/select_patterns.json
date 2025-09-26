@@ -1,0 +1,50 @@
+[
+    {
+        "id": "SELECT_SINGLE_FIELD_LIST_ANYLINE",
+        "description": "Detect SELECT SINGLE with explicit field list. Allows optional INTO ... between FROM and WHERE, supports multiline.",
+        "type": "regex",
+        "pattern": "SELECT\\s+SINGLE\\s+([\\w\\.,\\s\\-]+?)\\s+FROM\\s+([\\w\\s]+)(?:\\s+INTO[\\s\\S]+?)?\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT $1 FROM $2 INTO $3 $4 UP TO 1 ROWS WHERE $5 ORDER BY $1. ENDSELECT."
+    },
+    {
+        "id": "SELECT_SINGLE_STAR_ANYLINE",
+        "description": "Detect SELECT SINGLE * FROM ...; allows optional INTO ... between FROM and WHERE, supports multiline.",
+        "type": "regex",
+        "pattern": "SELECT\\s+SINGLE\\s+\\*\\s+FROM\\s+([\\w\\s]+)(?:\\s+INTO[\\s\\S]+?)?\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT * FROM $1 INTO $3 $4 UP TO 1 ROWS WHERE $2 ORDER BY PRIMARY KEY. ENDSELECT."
+    },
+    {
+        "id": "SELECT_FAE_FIELD_LIST_ANYLINE",
+        "description": "SELECT (multi/single line) with/without JOINs using FOR ALL ENTRIES; capture field list, FROM, INTO <TABLE phrase> <itab>, FAE driver, WHERE. Suggest adding a SORT on the target internal table by the selected field list after the SELECT.",
+        "type": "regex",
+        "pattern": "SELECT\\s+(?!SINGLE\\s)([\\s\\S]+?)\\s+FROM\\s+([\\s\\S]+?)\\s+INTO\\s+((?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:APPENDING\\s+TABLE|TABLE))\\s+([\\w@\\(\\)]+)\\s+FOR\\s+ALL\\s+ENTRIES\\s+IN\\s+([\\w@\\(\\)]+)\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT $1 FROM $2 INTO $3 $4 FOR ALL ENTRIES IN $5 WHERE $6.\nSORT $4 BY $1."
+    },
+    {
+        "id": "SELECT_FAE_STAR_ANYLINE",
+        "description": "SELECT * (multi/single line) with/without JOINs using FOR ALL ENTRIES; capture FROM, INTO <TABLE phrase> <itab>, FAE driver, WHERE. Suggest adding a SORT on the target internal table after the SELECT.",
+        "type": "regex",
+        "pattern": "SELECT\\s+(?!SINGLE\\s)\\*\\s+FROM\\s+([\\s\\S]+?)\\s+INTO\\s+((?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:APPENDING\\s+TABLE|TABLE))\\s+([\\w@\\(\\)]+)\\s+FOR\\s+ALL\\s+ENTRIES\\s+IN\\s+([\\w@\\(\\)]+)\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT * FROM $1 INTO $2 $3 FOR ALL ENTRIES IN $4 WHERE $5.\nSORT $3."
+    },
+    {
+        "id": "SELECT_NO_FAE_FIELD_LIST_ANYLINE",
+        "description": "SELECT (multi/single line) with/without JOINs without FOR ALL ENTRIES into an internal table; capture field list, FROM, INTO <TABLE phrase> <itab>, WHERE. Suggest adding ORDER BY (field list) in the SELECT.",
+        "type": "regex",
+        "pattern": "SELECT\\s+(?!SINGLE\\s)([\\s\\S]+?)\\s+FROM\\s+([\\s\\S]+?)\\s+INTO\\s+((?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:APPENDING\\s+TABLE|TABLE))\\s+([\\w@\\(\\)]+)\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT $1 FROM $2 INTO $3 $4 WHERE $5 ORDER BY $1."
+    },
+    {
+        "id": "SELECT_NO_FAE_STAR_ANYLINE",
+        "description": "SELECT * (multi/single line) with/without JOINs without FOR ALL ENTRIES into an internal table; capture FROM, INTO <TABLE phrase> <itab>, WHERE. Suggest adding ORDER BY PRIMARY KEY in the SELECT.",
+        "type": "regex",
+        "pattern": "SELECT\\s+(?!SINGLE\\s)\\*\\s+FROM\\s+([\\s\\S]+?)\\s+INTO\\s+((?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:APPENDING\\s+TABLE|TABLE))\\s+([\\w@\\(\\)]+)\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT * FROM $1 INTO $2 $3 WHERE $4 ORDER BY PRIMARY KEY."
+    }
+]

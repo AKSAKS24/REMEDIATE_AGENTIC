@@ -1,0 +1,107 @@
+Here’s the whole flow in simple, kid-friendly terms. Think of your app like a factory that cleans up ABAP code. Each file is a worker or a tool that helps get the job done.
+
+What happens when you call /remediate
+1) You send a box (the payload) to the front door.
+   - The box has program info and the ABAP code inside.
+
+2) The front door (app.py) hands the box to a manager (orchestrator).
+   - The front door stays clean; it doesn’t do any work itself.
+
+3) The manager (orchestrator.py) reads a to-do list (the agent pipeline).
+   - Example: “legacy_abap” is one worker on the list.
+   - You can choose the list via query parameter ?agents=... or set it in .env.
+
+4) The manager calls each worker (agent) one by one.
+   - The first worker gets your original code.
+   - The next worker, if any, gets the previous worker’s cleaned code.
+   - This lets you chain many AI agents later.
+
+5) The legacy ABAP worker (agents/legacy_abap.py) checks your code using a rule book (rag_patterns.json).
+   - If it finds old stuff, it asks GPT-4.1 to fix the code.
+   - If it finds nothing, it does not call GPT; it just tags the code.
+   - In both cases, the code gets a stamp: "* Added By Pwc YYYY-MM-DD".
+
+6) The manager returns the final cleaned code to you, along with the original code.
+   - The stamp is always there, even if an AI forgets (the manager double-checks).
+
+Who is who (each file’s job)
+- app.py
+  - The front door of the factory.
+  - Has the /remediate endpoint.
+  - It just passes the payload to the manager and returns the final result. Super clean.
+
+- orchestrator.py
+  - The manager.
+  - Reads which workers (agents) to run and in what order.
+  - Gives each worker the code, collects the result, and passes it to the next worker.
+  - Makes sure the PwC stamp is present at the end.
+  - Keeps original_code as what you first sent, even if multiple agents change the code.
+
+- agents/base.py
+  - The rules for being a worker.
+  - Says: “Every worker must have an id and a run() function that takes the payload and returns the response.”
+
+- agents/legacy_abap.py
+  - A worker that fixes legacy ABAP patterns.
+  - Uses the rule book (rag_patterns.json) to find old patterns.
+  - If it finds matches, it calls GPT-4.1 (through LangChain) to fix the code and add the PwC stamp.
+  - If no matches, it just returns the original code with the PwC stamp (no AI call).
+  - Uses environment variables for model name and RAG file.
+
+- agents/registry.py
+  - The workers’ phone book.
+  - Maps worker IDs like "legacy_abap" to the actual worker objects.
+  - When you add new workers later, you list them here.
+
+- models.py
+  - The shapes of the boxes going in and out.
+  - RemediationRequest: what you send (pgm_name, code, etc.).
+  - RemediationResponse: what you get back (original_code and remediated_code).
+
+- rag_loader.py
+  - The rule book reader.
+  - Loads the JSON file with patterns and default settings.
+  - Makes sure the JSON is shaped correctly (has id, pattern, etc.).
+
+- utils.py
+  - Helpful tools.
+  - scan_code_for_patterns: the magnifying glass. Finds all pattern matches with line numbers.
+  - add_pwc_tag: the stamp maker that adds "* Added By Pwc YYYY-MM-DD" at the top.
+
+- rag_patterns.json
+  - The rule book.
+  - A list of patterns to look for and the suggested replacements.
+  - You can add as many as you want. The worker will scan them all.
+
+- .env.example
+  - The secret locker and settings.
+  - OPENAI_API_KEY for GPT-4.1.
+  - OPENAI_MODEL, AGENT_PIPELINE, RAG_FILE, and LangChain tracing settings.
+  - Copy this to .env and fill the values.
+
+- requirements.txt
+  - The shopping list of Python packages the app needs.
+
+A simple story of a single request
+- You POST to /remediate with ABAP code.
+- app.py calls run_pipeline() with your payload.
+- orchestrator.py picks agents (like legacy_abap).
+- legacy_abap looks at rag_patterns.json and scans your code.
+  - If it finds “CALL TRANSACTION 'ME21'”, it’s old.
+  - It asks GPT-4.1 to change it to ME21N and adds the PwC stamp.
+  - If it finds nothing old, it skips calling GPT and just stamps the code.
+- Orchestrator returns the final result to you, with original_code and remediated_code.
+
+Why this design is future-proof
+- You can add more agents later (security checks, formatting, code comments, tests).
+- Each agent uses the same input and output shape, so they chain nicely.
+- You can change the pipeline order without touching app.py (use .env or query ?agents=...).
+- RAG JSON is easy to grow with more patterns.
+
+Tracing and safety
+- If you set LangChain tracing env vars, you can see the AI calls in LangSmith.
+- If an agent forgets to stamp, orchestrator adds the stamp.
+- If no agents run, you still get the code back with the stamp.
+
+In short: app.py is the clean front door; orchestrator is the manager; agents are the workers; rag_patterns.json is the rule book; utils are tools; 
+models define box shapes; .env stores secrets. The system scans, optionally fixes with AI, stamps, and returns clean code that can be fed to the next agent.
