@@ -29,6 +29,6 @@
         "type": "regex",
         "pattern": "SELECT\\s+(?!SINGLE\\b)\\\\s+FROM\\s+([\\s\\S]+?)(?=(?:\\s+INTO\\b|\\s+WHERE\\b|\\s+ORDER\\s+BY\\b|\\s\\.))\\s+INTO\\s+((?:APPENDING\\s+TABLE)|(?:CORRESPONDING\\s+FIELDS\\s+OF\\s+TABLE)|(?:TABLE))\\s+(@?DATA\\([^\\)]+\\)|@?[\\w<>\\-]+)((?:\\s+WHERE\\s+[\\s\\S]+?(?=(?:\\s+ORDER\\s+BY\\b|\\s*\\.)))?)((?:\\s+ORDER\\s+BY\\s+[\\s\\S]+?(?=\\s*\\.))?)\\.(?=\\s|$)",
         "case_sensitive": false,
-        "suggested_replacement": "SELECT * FROM $1 INTO $2 $3$4$5. ENDSELECT."
+        "suggested_replacement": "SELECT * FROM $1 INTO $2 $3$4$5.ENDSELECT."
     }
 ]
