@@ -1,19 +1,19 @@
 [
     {
         "id": "SELECT_SINGLE_FIELD_LIST_ANYLINE",
-        "description": "Detect SELECT SINGLE with explicit field list. Allows optional INTO ... between FROM and WHERE, supports multiline.",
+        "description": "Detect SELECT SINGLE with explicit field list. Allows optional INTO (incl. CORRESPONDING FIELDS OF and @DATA(...)) between FROM and WHERE, supports multiline.",
         "type": "regex",
-        "pattern": "SELECT\\s+SINGLE\\s+([\\w\\.,\\s\\-]+?)\\s+FROM\\s+([\\w\\s]+)(?:\\s+INTO[\\s\\S]+?)?\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
+        "pattern": "SELECT\\s+SINGLE\\s+(?!\\)\\s)([\\s\\S]+?)\\s+FROM\\s+([\\s\\S]+?)\\s*(?:(\\s+INTO\\s+(?:(?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:@?DATA\\([^\\)]+\\)|@?[\\w<>\\-]+))))?\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
         "case_sensitive": false,
-        "suggested_replacement": "SELECT $1 FROM $2 INTO $3 $4 UP TO 1 ROWS WHERE $5 ORDER BY $1. ENDSELECT."
+        "suggested_replacement": "SELECT $1 FROM $2$3 UP TO 1 ROWS WHERE $4 ORDER BY $1. ENDSELECT."
     },
     {
         "id": "SELECT_SINGLE_STAR_ANYLINE",
-        "description": "Detect SELECT SINGLE * FROM ...; allows optional INTO ... between FROM and WHERE, supports multiline.",
+        "description": "Detect SELECT SINGLE * FROM ...; allows optional INTO (incl. CORRESPONDING FIELDS OF and @DATA(...)) between FROM and WHERE, supports multiline.",
         "type": "regex",
-        "pattern": "SELECT\\s+SINGLE\\s+\\*\\s+FROM\\s+([\\w\\s]+)(?:\\s+INTO[\\s\\S]+?)?\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
+        "pattern": "SELECT\\s+SINGLE\\s+\\*\\s+FROM\\s+([\\s\\S]+?)\\s(?:(\\s+INTO\\s+(?:(?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:@?DATA\\([^\\)]+\\)|@?[\\w<>\\-]+))))?\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
         "case_sensitive": false,
-        "suggested_replacement": "SELECT * FROM $1 INTO $3 $4 UP TO 1 ROWS WHERE $2 ORDER BY PRIMARY KEY. ENDSELECT."
+        "suggested_replacement": "SELECT * FROM $1$2 UP TO 1 ROWS WHERE $3 ORDER BY PRIMARY KEY. ENDSELECT."
     },
     {
         "id": "SELECT_NO_FAE_FIELD_LIST_ANYLINE",
@@ -21,7 +21,7 @@
         "type": "regex",
         "pattern": "SELECT\\s+(?!SINGLE\\s)([\\s\\S]+?)\\s+FROM\\s+([\\s\\S]+?)\\s+INTO\\s+((?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:APPENDING\\s+TABLE|TABLE))\\s+([\\w@\\(\\)]+)\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
         "case_sensitive": false,
-        "suggested_replacement": "SELECT $1 FROM $2 INTO $3 $4 WHERE $5 ORDER BY $1."
+        "suggested_replacement": "SELECT $1 FROM $2 INTO $3 $4 WHERE $5 ORDER BY $1. ENDSELECT"
     },
     {
         "id": "SELECT_NO_FAE_STAR_ANYLINE",
@@ -29,6 +29,6 @@
         "type": "regex",
         "pattern": "SELECT\\s+(?!SINGLE\\s)\\*\\s+FROM\\s+([\\s\\S]+?)\\s+INTO\\s+((?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:APPENDING\\s+TABLE|TABLE))\\s+([\\w@\\(\\)]+)\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
         "case_sensitive": false,
-        "suggested_replacement": "SELECT * FROM $1 INTO $2 $3 WHERE $4 ORDER BY PRIMARY KEY."
+        "suggested_replacement": "SELECT * FROM $1 INTO $2 $3 WHERE $4 ORDER BY PRIMARY KEY. ENDSELECT"
     }
 ]
