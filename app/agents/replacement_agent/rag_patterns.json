@@ -592,62 +592,6 @@
         "suggested_replacement": "'BP'"
     },
     {
-        "id": "LITERAL_MARC_to_NSDM_V_MARC",
-        "description": "Replace any literal 'MARC' with 'NSDM_V_MARC'.",
-        "type": "regex",
-        "pattern": "MARC",
-        "case_sensitive": false,
-        "suggested_replacement": "NSDM_V_MARC"
-    },
-    {
-        "id": "LITERAL_MARD_to_NSDM_V_MARD",
-        "description": "Replace any literal 'MARD' with 'NSDM_V_MARD'.",
-        "type": "regex",
-        "pattern": "MARD",
-        "case_sensitive": false,
-        "suggested_replacement": "NSDM_V_MARD"
-    },
-    {
-        "id": "LITERAL_MKPF_to_MATDOC",
-        "description": "Replace any literal 'MKPF' with 'MATDOC'.",
-        "type": "regex",
-        "pattern": "MKPF",
-        "case_sensitive": false,
-        "suggested_replacement": "MATDOC"
-    },
-    {
-        "id": "LITERAL_MSEG_to_MATDOC",
-        "description": "Replace any literal 'MSEG' with 'MATDOC'.",
-        "type": "regex",
-        "pattern": "MSEG",
-        "case_sensitive": false,
-        "suggested_replacement": "MATDOC"
-    },
-    {
-        "id": "LITERAL_MSLB_to_NSDM_V_MSLB",
-        "description": "Replace any literal 'MSLB' with 'NSDM_V_MSLB'.",
-        "type": "regex",
-        "pattern": "MSLB",
-        "case_sensitive": false,
-        "suggested_replacement": "NSDM_V_MSLB"
-    },
-    {
-        "id": "LITERAL_MB1A_to_MIGO",
-        "description": "Replace any literal 'MB1A' with 'MIGO'.",
-        "type": "regex",
-        "pattern": "'MB1A'",
-        "case_sensitive": false,
-        "suggested_replacement": "'MIGO'"
-    },
-    {
-        "id": "LITERAL_MB1B_to_MIGO",
-        "description": "Replace any literal 'MB1B' with 'MIGO'.",
-        "type": "regex",
-        "pattern": "'MB1B'",
-        "case_sensitive": false,
-        "suggested_replacement": "'MIGO'"
-    },
-    {
         "id": "RULE4_DESCRIBE_FIELD_LENGTH_TO_STRLEN",
         "description": "Replace DESCRIBE FIELD ... LENGTH ... with runtime-safe strlen( ) to determine the actual content length (character mode).",
         "type": "regex",
@@ -686,5 +630,157 @@
         "pattern": "CONCATENATE\\s+([\\s\\S]+?)\\s+INTO\\s+([A-Za-z_\\-][\\w\\-]*)\\s*\\.",
         "case_sensitive": false,
         "suggested_replacement": "$2 = |{ part1 }{ part2 }{ part3 }|."
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_VBTYP_to_VBTYPL",
+        "description": "Replace VBTYP with VBTYPL when used in TYPE/LIKE declarations (incl. RANGE OF and TABLE OF variants).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:RANGE\\s+OF\\s+|(?:(?:STANDARD|SORTED|HASHED)\\s+)?TABLE\\s+OF\\s+)?)\\bVBTYP\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1VBTYPL"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_DZAEHK_to_VFPRC_COND_COUNT",
+        "description": "Replace DZAEHK with VFPRC_COND_COUNT when used in TYPE/LIKE declarations (incl. RANGE OF and TABLE OF variants).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:RANGE\\s+OF\\s+|(?:(?:STANDARD|SORTED|HASHED)\\s+)?TABLE\\s+OF\\s+)?)\\bDZAEHK\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1VFPRC_COND_COUNT"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_DZAEKO_to_VFPRC_COND_COUNT_HEAD",
+        "description": "Replace DZAEKO with VFPRC_COND_COUNT_HEAD when used in TYPE/LIKE declarations (incl. RANGE OF and TABLE OF variants).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:RANGE\\s+OF\\s+|(?:(?:STANDARD|SORTED|HASHED)\\s+)?TABLE\\s+OF\\s+)?)\\bDZAEKO\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1VFPRC_COND_COUNT_HEAD"
+    },
+    {
+        "id": "SELECT_VBRK_WHERE_add_draft_base_with_alias",
+        "description": "SELECT (incl. SELECT * / SINGLE) where VBRK is the base table with alias and WHERE clause lacks that alias' draft; append AND <alias>~draft = space.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\s+VBRK\\s+AS\\s+(\\w+)\\b([\\s\\S]*?)\\bWHERE\\s+(?![^.]*\\b(?:\\2|VBRK)\\s*~\\s*draft\\b)([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM VBRK AS $2$3WHERE $4 AND $2~draft = space."
+    },
+    {
+        "id": "SELECT_VBRK_WHERE_add_draft_base_no_alias",
+        "description": "SELECT (incl. SELECT * / SINGLE) where VBRK is the base table without alias and WHERE clause lacks draft; append AND VBRK~draft = space.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\s+VBRK\\b(?!\\s+AS\\b)([\\s\\S]*?)\\bWHERE\\s+(?![^.]*\\bVBRK\\s*~\\s*draft\\b)([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM VBRK$2WHERE $3 AND VBRK~draft = space."
+    },
+    {
+        "id": "SELECT_VBRK_WHERE_add_draft_join_with_alias",
+        "description": "SELECT with JOIN where VBRK is joined with an alias and WHERE clause lacks that alias' draft; append AND <alias>~draft = space.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\b([\\s\\S]*?)\\bJOIN\\s+VBRK\\s+AS\\s+(\\w+)\\b([\\s\\S]*?)\\bWHERE\\s+(?![^.]*\\b(?:\\3|VBRK)\\s*~\\s*draft\\b)([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM $2JOIN VBRK AS $3$4WHERE $5 AND $3~draft = space."
+    },
+    {
+        "id": "SELECT_VBRK_WHERE_add_draft_join_no_alias",
+        "description": "SELECT with JOIN where VBRK is joined without alias and WHERE clause lacks draft; append AND VBRK~draft = space.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\b([\\s\\S]*?)\\bJOIN\\s+VBRK\\b(?!\\s+AS\\b)([\\s\\S]*?)\\bWHERE\\s+(?![^.]*\\bVBRK\\s*~\\s*draft\\b)([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM $2JOIN VBRK$3WHERE $4 AND VBRK~draft = space."
+    },
+    {
+        "id": "SELECT_VBRK_NO_WHERE_add_draft_base_with_alias",
+        "description": "SELECT (incl. SELECT *) where VBRK is base table with alias and there is no WHERE; add WHERE <alias>~draft = space at end.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\s+VBRK\\s+AS\\s+(\\w+)\\b((?:(?!\\bWHERE\\b)[\\s\\S])*?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM VBRK AS $2$3 WHERE $2~draft = space."
+    },
+    {
+        "id": "SELECT_VBRK_NO_WHERE_add_draft_base_no_alias",
+        "description": "SELECT (incl. SELECT *) where VBRK is base table without alias and there is no WHERE; add WHERE VBRK~draft = space at end.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\s+VBRK\\b(?!\\s+AS\\b)((?:(?!\\bWHERE\\b)[\\s\\S])*?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM VBRK$2 WHERE VBRK~draft = space."
+    },
+    {
+        "id": "SELECT_VBRK_NO_WHERE_add_draft_join_with_alias",
+        "description": "SELECT with JOIN where VBRK is joined with alias and there is no WHERE; add WHERE <alias>~draft = space at end.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\b([\\s\\S]*?)\\bJOIN\\s+VBRK\\s+AS\\s+(\\w+)\\b((?:(?!\\bWHERE\\b)[\\s\\S])*?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM $2JOIN VBRK AS $3$4 WHERE $3~draft = space."
+    },
+    {
+        "id": "SELECT_VBRK_NO_WHERE_add_draft_join_no_alias",
+        "description": "SELECT with JOIN where VBRK is joined without alias and there is no WHERE; add WHERE VBRK~draft = space at end.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\b([\\s\\S]*?)\\bJOIN\\s+VBRK\\b(?!\\s+AS\\b)((?:(?!\\bWHERE\\b)[\\s\\S])*?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM $2JOIN VBRK$3 WHERE VBRK~draft = space."
+    },
+    {
+        "id": "SELECT_VBRP_WHERE_add_draft_base_with_alias",
+        "description": "SELECT (incl. SELECT * / SINGLE) where VBRP is the base table with alias and WHERE clause lacks that alias' draft; append AND <alias>~draft = space.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\s+VBRP\\s+AS\\s+(\\w+)\\b([\\s\\S]*?)\\bWHERE\\s+(?![^.]*\\b(?:\\2|VBRP)\\s*~\\s*draft\\b)([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM VBRP AS $2$3WHERE $4 AND $2~draft = space."
+    },
+    {
+        "id": "SELECT_VBRP_WHERE_add_draft_base_no_alias",
+        "description": "SELECT (incl. SELECT * / SINGLE) where VBRP is the base table without alias and WHERE clause lacks draft; append AND VBRP~draft = space.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\s+VBRP\\b(?!\\s+AS\\b)([\\s\\S]*?)\\bWHERE\\s+(?![^.]*\\bVBRP\\s*~\\s*draft\\b)([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM VBRP$2WHERE $3 AND VBRP~draft = space."
+    },
+    {
+        "id": "SELECT_VBRP_WHERE_add_draft_join_with_alias",
+        "description": "SELECT with JOIN where VBRP is joined with an alias and WHERE clause lacks that alias' draft; append AND <alias>~draft = space.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\b([\\s\\S]*?)\\bJOIN\\s+VBRP\\s+AS\\s+(\\w+)\\b([\\s\\S]*?)\\bWHERE\\s+(?![^.]*\\b(?:\\3|VBRP)\\s*~\\s*draft\\b)([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT $1FROM $2JOIN VBRP AS $3$4WHERE $5 AND $3~draft = space."
+    },
+    {
+        "id": "SELECT_VBRP_WHERE_add_draft_join_no_alias",
+        "description": "SELECT with JOIN where VBRP is joined without alias and WHERE clause lacks draft; append AND VBRP~draft = space.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\b([\\s\\S]*?)\\bJOIN\\s+VBRP\\b(?!\\s+AS\\b)([\\s\\S]*?)\\bWHERE\\s+(?![^.]*\\bVBRP\\s*~\\s*draft\\b)([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM $2JOIN VBRP$3WHERE $4 AND VBRP~draft = space."
+    },
+    {
+        "id": "SELECT_VBRP_NO_WHERE_add_draft_base_with_alias",
+        "description": "SELECT (incl. SELECT *) where VBRP is base table with alias and there is no WHERE; add WHERE <alias>~draft = space at end.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\s+VBRP\\s+AS\\s+(\\w+)\\b((?:(?!\\bWHERE\\b)[\\s\\S])*?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM VBRP AS $2$3 WHERE $2~draft = space."
+    },
+    {
+        "id": "SELECT_VBRP_NO_WHERE_add_draft_base_no_alias",
+        "description": "SELECT (incl. SELECT *) where VBRP is base table without alias and there is no WHERE; add WHERE VBRP~draft = space at end.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\s+VBRP\\b(?!\\s+AS\\b)((?:(?!\\bWHERE\\b)[\\s\\S])*?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM VBRP$2 WHERE VBRP~draft = space."
+    },
+    {
+        "id": "SELECT_VBRP_NO_WHERE_add_draft_join_with_alias",
+        "description": "SELECT with JOIN where VBRP is joined with alias and there is no WHERE; add WHERE <alias>~draft = space at end.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\b([\\s\\S]*?)\\bJOIN\\s+VBRP\\s+AS\\s+(\\w+)\\b((?:(?!\\bWHERE\\b)[\\s\\S])*?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM $2JOIN VBRP AS $3$4 WHERE $3~draft = space."
+    },
+    {
+        "id": "SELECT_VBRP_NO_WHERE_add_draft_join_no_alias",
+        "description": "SELECT with JOIN where VBRP is joined without alias and there is no WHERE; add WHERE VBRP~draft = space at end.",
+        "type": "regex",
+        "pattern": "\\bSELECT\\b([\\s\\S]*?)\\bFROM\\b([\\s\\S]*?)\\bJOIN\\s+VBRP\\b(?!\\s+AS\\b)((?:(?!\\bWHERE\\b)[\\s\\S])*?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT$1FROM $2JOIN VBRP$3 WHERE VBRP~draft = space."
     }
 ]

@@ -6,7 +6,7 @@ from app.agents.registry import get_agent_registry
 
 # Default pipeline can be set via env, e.g. "legacy_abap,formatter"
 DEFAULT_PIPELINE = [
-    a.strip() for a in os.getenv("AGENT_PIPELINE", "legacy_abap, select_abap").split(",") if a.strip()
+    a.strip() for a in os.getenv("AGENT_PIPELINE", "legacy_abap, select_abap, sort_abap, table_abap").split(",") if a.strip()
 ]
 
 

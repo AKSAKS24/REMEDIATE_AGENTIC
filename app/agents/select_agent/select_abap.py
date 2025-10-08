@@ -54,7 +54,7 @@ Your task:
 Update the code by applying the specified replacements precisely.
 Do not change unrelated parts of the code.
 Use valid ABAP syntax.
-For each change you make, add an ABAP comment tag on the changed line or just above it: "* Added By Pwc {tag_date}"
+For each change you make, add an ABAP comment tag on the changed line or just above it: "Added By Pwc {tag_date}
 """
 
 HUMAN_PROMPT = """Context:

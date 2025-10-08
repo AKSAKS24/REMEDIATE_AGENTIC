@@ -5,8 +5,8 @@ from typing import List, Dict, Any, Optional
 
 from dotenv import load_dotenv
 from app.models import RemediationRequest, RemediationResponse
-from app.agents.replacement_agent.rag_loader import load_rag_patterns
-from app.agents.replacement_agent.utils import scan_code_for_patterns, add_pwc_tag
+from app.agents.table_agent.table_pattern_loader import load_rag_patterns
+from app.agents.table_agent.table_utils import scan_code_for_patterns, add_pwc_tag
 
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import SystemMessage, HumanMessage
@@ -23,7 +23,7 @@ MODEL_NAME = os.getenv("OPENAI_MODEL", "gpt-4.1")
 ROOT = os.path.dirname(os.path.abspath(__file__))
 RAG_FILE = os.getenv(
     "RAG_FILE",
-    os.path.join(ROOT, "rag_patterns.json")
+    os.path.join(ROOT, "table_patterns.json")
 )
 
 _PATTERNS_CACHE: Optional[List[Dict[str, Any]]] = None
@@ -81,14 +81,15 @@ Never explicitly end and block of code like(ENDFORM , ENDMETHOD) (Mandatory)
 """
 
 
-class LegacyABAPRemediationAgent:
-    id = "legacy_abap"
+class TableABAPRemediationAgent:
+    id = "table_abap"
     description = "Scans ABAP code for legacy transaction/pattern usage using RAG JSON and remediates via GPT-4.1."
 
     async def run(self, payload: RemediationRequest) -> RemediationResponse:
         original_code = payload.code or ""
-        patterns = _get_patterns()
-        findings = scan_code_for_patterns(original_code, patterns)
+        patterns = _get_patterns()        
+        findings = scan_code_for_patterns(original_code, patterns)        
+        
 
         # If no findings, return code with PwC tag; do not call LLM
         if not findings:

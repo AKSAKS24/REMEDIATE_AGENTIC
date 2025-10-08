@@ -1,0 +1,354 @@
+[
+    {
+        "id": "ABAP_TYPE_or_LIKE_MARC",
+        "description": "Replace MARC when used in TYPE/LIKE declarations (incl. TABLE OF / REF TO).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:REF\\s+TO\\s+)?(?:STANDARD\\s+TABLE\\s+OF\\s+|SORTED\\s+TABLE\\s+OF\\s+|HASHED\\s+TABLE\\s+OF\\s+|TABLE\\s+OF\\s+)?)\\bMARC\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MARC"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_MARC_component",
+        "description": "Replace MARC when used as DDIC component reference like TYPE MARC-MATNR or LIKE MARC~MATNR.",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+)(MARC)([-~][A-Z0-9_]+)",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MARC$3"
+    },
+    {
+        "id": "SQL_FROM_MARC",
+        "description": "Replace MARC in SQL FROM clause.",
+        "type": "regex",
+        "pattern": "(\\bFROM\\s+)\\bMARC\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MARC"
+    },
+    {
+        "id": "SQL_JOIN_MARC",
+        "description": "Replace MARC in SQL JOIN clause.",
+        "type": "regex",
+        "pattern": "(\\bJOIN\\s+)\\bMARC\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MARC"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_MARD",
+        "description": "Replace MARD when used in TYPE/LIKE declarations (incl. TABLE OF / REF TO).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:REF\\s+TO\\s+)?(?:STANDARD\\s+TABLE\\s+OF\\s+|SORTED\\s+TABLE\\s+OF\\s+|HASHED\\s+TABLE\\s+OF\\s+|TABLE\\s+OF\\s+)?)\\bMARD\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MARD"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_MARD_component",
+        "description": "Replace MARD when used as DDIC component reference like TYPE MARD-MATNR or LIKE MARD~MATNR.",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+)(MARD)([-~][A-Z0-9_]+)",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MARD$3"
+    },
+    {
+        "id": "SQL_FROM_MARD",
+        "description": "Replace MARD in SQL FROM clause.",
+        "type": "regex",
+        "pattern": "(\\bFROM\\s+)\\bMARD\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MARD"
+    },
+    {
+        "id": "SQL_JOIN_MARD",
+        "description": "Replace MARD in SQL JOIN clause.",
+        "type": "regex",
+        "pattern": "(\\bJOIN\\s+)\\bMARD\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MARD"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_MKPF",
+        "description": "Replace MKPF when used in TYPE/LIKE declarations (incl. TABLE OF / REF TO).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:REF\\s+TO\\s+)?(?:STANDARD\\s+TABLE\\s+OF\\s+|SORTED\\s+TABLE\\s+OF\\s+|HASHED\\s+TABLE\\s+OF\\s+|TABLE\\s+OF\\s+)?)\\bMKPF\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1MATDOC"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_MKPF_component",
+        "description": "Replace MKPF when used as DDIC component reference like TYPE MKPF-MBLNR or LIKE MKPF~MBLNR.",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+)(MKPF)([-~][A-Z0-9_]+)",
+        "case_sensitive": false,
+        "suggested_replacement": "$1MATDOC$3"
+    },
+    {
+        "id": "SQL_FROM_MKPF",
+        "description": "Replace MKPF in SQL FROM clause.",
+        "type": "regex",
+        "pattern": "(\\bFROM\\s+)\\bMKPF\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1MATDOC"
+    },
+    {
+        "id": "SQL_JOIN_MKPF",
+        "description": "Replace MKPF in SQL JOIN clause.",
+        "type": "regex",
+        "pattern": "(\\bJOIN\\s+)\\bMKPF\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1MATDOC"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_MSEG",
+        "description": "Replace MSEG when used in TYPE/LIKE declarations (incl. TABLE OF / REF TO).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:REF\\s+TO\\s+)?(?:STANDARD\\s+TABLE\\s+OF\\s+|SORTED\\s+TABLE\\s+OF\\s+|HASHED\\s+TABLE\\s+OF\\s+|TABLE\\s+OF\\s+)?)\\bMSEG\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1MATDOC"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_MSEG_component",
+        "description": "Replace MSEG when used as DDIC component reference like TYPE MSEG-MATNR or LIKE MSEG~MATNR.",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+)(MSEG)([-~][A-Z0-9_]+)",
+        "case_sensitive": false,
+        "suggested_replacement": "$1MATDOC$3"
+    },
+    {
+        "id": "SQL_FROM_MSEG",
+        "description": "Replace MSEG in SQL FROM clause.",
+        "type": "regex",
+        "pattern": "(\\bFROM\\s+)\\bMSEG\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1MATDOC"
+    },
+    {
+        "id": "SQL_JOIN_MSEG",
+        "description": "Replace MSEG in SQL JOIN clause.",
+        "type": "regex",
+        "pattern": "(\\bJOIN\\s+)\\bMSEG\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1MATDOC"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_MSLB",
+        "description": "Replace MSLB when used in TYPE/LIKE declarations (incl. TABLE OF / REF TO).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:REF\\s+TO\\s+)?(?:STANDARD\\s+TABLE\\s+OF\\s+|SORTED\\s+TABLE\\s+OF\\s+|HASHED\\s+TABLE\\s+OF\\s+|TABLE\\s+OF\\s+)?)\\bMSLB\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MSLB"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_MSLB_component",
+        "description": "Replace MSLB when used as DDIC component reference like TYPE MSLB-MATNR or LIKE MSLB~MATNR.",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+)(MSLB)([-~][A-Z0-9_]+)",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MSLB$3"
+    },
+    {
+        "id": "SQL_FROM_MSLB",
+        "description": "Replace MSLB in SQL FROM clause.",
+        "type": "regex",
+        "pattern": "(\\bFROM\\s+)\\bMSLB\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MSLB"
+    },
+    {
+        "id": "SQL_JOIN_MSLB",
+        "description": "Replace MSLB in SQL JOIN clause.",
+        "type": "regex",
+        "pattern": "(\\bJOIN\\s+)\\bMSLB\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1NSDM_V_MSLB"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_J_1IMOCUST",
+        "description": "Replace J_1IMOCUST when used in TYPE/LIKE declarations (incl. TABLE OF / REF TO).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:REF\\s+TO\\s+)?(?:STANDARD\\s+TABLE\\s+OF\\s+|SORTED\\s+TABLE\\s+OF\\s+|HASHED\\s+TABLE\\s+OF\\s+|TABLE\\s+OF\\s+)?)\\bJ_1IMOCUST\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1KNA1"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_J_1IMOCUST_component",
+        "description": "Replace J_1IMOCUST when used as DDIC component reference like TYPE J_1IMOCUST-KUNNR or LIKE J_1IMOCUST~KUNNR.",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+)(J_1IMOCUST)([-~][A-Z0-9_]+)",
+        "case_sensitive": false,
+        "suggested_replacement": "$1KNA1$3"
+    },
+    {
+        "id": "SQL_FROM_J_1IMOCUST",
+        "description": "Replace J_1IMOCUST in SQL FROM clause.",
+        "type": "regex",
+        "pattern": "(\\bFROM\\s+)\\bJ_1IMOCUST\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1KNA1"
+    },
+    {
+        "id": "SQL_JOIN_J_1IMOCUST",
+        "description": "Replace J_1IMOCUST in SQL JOIN clause.",
+        "type": "regex",
+        "pattern": "(\\bJOIN\\s+)\\bJ_1IMOCUST\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1KNA1"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_J_1IMOVEND",
+        "description": "Replace J_1IMOVEND when used in TYPE/LIKE declarations (incl. TABLE OF / REF TO).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:REF\\s+TO\\s+)?(?:STANDARD\\s+TABLE\\s+OF\\s+|SORTED\\s+TABLE\\s+OF\\s+|HASHED\\s+TABLE\\s+OF\\s+|TABLE\\s+OF\\s+)?)\\bJ_1IMOVEND\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1LFA1"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_J_1IMOVEND_component",
+        "description": "Replace J_1IMOVEND when used as DDIC component reference like TYPE J_1IMOVEND-LIFNR or LIKE J_1IMOVEND~LIFNR.",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+)(J_1IMOVEND)([-~][A-Z0-9_]+)",
+        "case_sensitive": false,
+        "suggested_replacement": "$1LFA1$3"
+    },
+    {
+        "id": "SQL_FROM_J_1IMOVEND",
+        "description": "Replace J_1IMOVEND in SQL FROM clause.",
+        "type": "regex",
+        "pattern": "(\\bFROM\\s+)\\bJ_1IMOVEND\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1LFA1"
+    },
+    {
+        "id": "SQL_JOIN_J_1IMOVEND",
+        "description": "Replace J_1IMOVEND in SQL JOIN clause.",
+        "type": "regex",
+        "pattern": "(\\bJOIN\\s+)\\bJ_1IMOVEND\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1LFA1"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_J_1BBRANCH",
+        "description": "Replace J_1BBRANCH when used in TYPE/LIKE declarations (incl. TABLE OF / REF TO).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:REF\\s+TO\\s+)?(?:STANDARD\\s+TABLE\\s+OF\\s+|SORTED\\s+TABLE\\s+OF\\s+|HASHED\\s+TABLE\\s+OF\\s+|TABLE\\s+OF\\s+)?)\\bJ_1BBRANCH\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1P_BusinessPlace"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_J_1BBRANCH_component",
+        "description": "Replace J_1BBRANCH when used as DDIC component reference like TYPE J_1BBRANCH-BPLID or LIKE J_1BBRANCH~BPLID.",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+)(J_1BBRANCH)([-~][A-Z0-9_]+)",
+        "case_sensitive": false,
+        "suggested_replacement": "$1P_BusinessPlace$3"
+    },
+    {
+        "id": "SQL_FROM_J_1BBRANCH",
+        "description": "Replace J_1BBRANCH in SQL FROM clause.",
+        "type": "regex",
+        "pattern": "(\\bFROM\\s+)\\bJ_1BBRANCH\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1P_BusinessPlace"
+    },
+    {
+        "id": "SQL_JOIN_J_1BBRANCH",
+        "description": "Replace J_1BBRANCH in SQL JOIN clause.",
+        "type": "regex",
+        "pattern": "(\\bJOIN\\s+)\\bJ_1BBRANCH\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1P_BusinessPlace"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_VBUK",
+        "description": "Replace VBUK when used in TYPE/LIKE declarations (incl. TABLE OF / REF TO).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:REF\\s+TO\\s+)?(?:STANDARD\\s+TABLE\\s+OF\\s+|SORTED\\s+TABLE\\s+OF\\s+|HASHED\\s+TABLE\\s+OF\\s+|TABLE\\s+OF\\s+)?)\\bVBUK\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1VBAK"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_VBUK_component",
+        "description": "Replace VBUK when used as DDIC component reference like TYPE VBUK-VBELN or LIKE VBUK~VBELN.",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+)(VBUK)([-~][A-Z0-9_]+)",
+        "case_sensitive": false,
+        "suggested_replacement": "$1VBAK$3"
+    },
+    {
+        "id": "SQL_FROM_VBUK",
+        "description": "Replace VBUK in SQL FROM clause.",
+        "type": "regex",
+        "pattern": "(\\bFROM\\s+)\\bVBUK\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1VBAK"
+    },
+    {
+        "id": "SQL_JOIN_VBUK",
+        "description": "Replace VBUK in SQL JOIN clause.",
+        "type": "regex",
+        "pattern": "(\\bJOIN\\s+)\\bVBUK\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1VBAK"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_VBUP",
+        "description": "Replace VBUP when used in TYPE/LIKE declarations (incl. TABLE OF / REF TO).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:REF\\s+TO\\s+)?(?:STANDARD\\s+TABLE\\s+OF\\s+|SORTED\\s+TABLE\\s+OF\\s+|HASHED\\s+TABLE\\s+OF\\s+|TABLE\\s+OF\\s+)?)\\bVBUP\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1VBAP"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_VBUP_component",
+        "description": "Replace VBUP when used as DDIC component reference like TYPE VBUP-VBELN or LIKE VBUP~VBELN.",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+)(VBUP)([-~][A-Z0-9_]+)",
+        "case_sensitive": false,
+        "suggested_replacement": "$1VBAP$3"
+    },
+    {
+        "id": "SQL_FROM_VBUP",
+        "description": "Replace VBUP in SQL FROM clause.",
+        "type": "regex",
+        "pattern": "(\\bFROM\\s+)\\bVBUP\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1VBAP"
+    },
+    {
+        "id": "SQL_JOIN_VBUP",
+        "description": "Replace VBUP in SQL JOIN clause.",
+        "type": "regex",
+        "pattern": "(\\bJOIN\\s+)\\bVBUP\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1VBAP"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_KONV",
+        "description": "Replace KONV when used in TYPE/LIKE declarations (incl. TABLE OF / REF TO).",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+(?:REF\\s+TO\\s+)?(?:STANDARD\\s+TABLE\\s+OF\\s+|SORTED\\s+TABLE\\s+OF\\s+|HASHED\\s+TABLE\\s+OF\\s+|TABLE\\s+OF\\s+)?)\\bKONV\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1PRCD_ELEMENTS"
+    },
+    {
+        "id": "ABAP_TYPE_or_LIKE_KONV_component",
+        "description": "Replace KONV when used as DDIC component reference like TYPE KONV-KNUMV or LIKE KONV~KNUMV.",
+        "type": "regex",
+        "pattern": "(\\b(?:TYPE|LIKE)\\s+)(KONV)([-~][A-Z0-9_]+)",
+        "case_sensitive": false,
+        "suggested_replacement": "$1PRCD_ELEMENTS$3"
+    },
+    {
+        "id": "SQL_FROM_KONV",
+        "description": "Replace KONV in SQL FROM clause.",
+        "type": "regex",
+        "pattern": "(\\bFROM\\s+)\\bKONV\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1PRCD_ELEMENTS"
+    },
+    {
+        "id": "SQL_JOIN_KONV",
+        "description": "Replace KONV in SQL JOIN clause.",
+        "type": "regex",
+        "pattern": "(\\bJOIN\\s+)\\bKONV\\b",
+        "case_sensitive": false,
+        "suggested_replacement": "$1PRCD_ELEMENTS"
+    }
+]

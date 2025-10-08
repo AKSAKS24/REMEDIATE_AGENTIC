@@ -1,0 +1,42 @@
+[
+    {
+        "id": "SELECT_FAE_FIELD_LIST_ANYLINE",
+        "description": "SELECT (multi/single line) with/without JOINs using FOR ALL ENTRIES; capture field list, FROM, INTO <TABLE phrase> <itab>, FAE driver, WHERE. Suggest adding a SORT on the target internal table by the selected field list after the SELECT.",
+        "type": "regex",
+        "pattern": "SELECT\\s+(?!SINGLE\\s)([\\s\\S]+?)\\s+FROM\\s+([\\s\\S]+?)\\s+INTO\\s+((?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:APPENDING\\s+TABLE|TABLE))\\s+([\\w@\\(\\)]+)\\s+FOR\\s+ALL\\s+ENTRIES\\s+IN\\s+([\\w@\\(\\)]+)\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT $1 FROM $2 INTO $3 $4 FOR ALL ENTRIES IN $5 WHERE $6.\nSORT $4 BY $1."
+    },
+    {
+        "id": "SELECT_FAE_STAR_ANYLINE",
+        "description": "SELECT * (multi/single line) with/without JOINs using FOR ALL ENTRIES; capture FROM, INTO <TABLE phrase> <itab>, FAE driver, WHERE. Suggest adding a SORT on the target internal table after the SELECT.",
+        "type": "regex",
+        "pattern": "SELECT\\s+(?!SINGLE\\s)\\*\\s+FROM\\s+([\\s\\S]+?)\\s+INTO\\s+((?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:APPENDING\\s+TABLE|TABLE))\\s+([\\w@\\(\\)]+)\\s+FOR\\s+ALL\\s+ENTRIES\\s+IN\\s+([\\w@\\(\\)]+)\\s+WHERE\\s+([\\s\\S]+?)\\.(?=\\s|$)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT * FROM $1 INTO $2 $3 FOR ALL ENTRIES IN $4 WHERE $5.\nSORT $3."
+    },
+    {
+        "id": "READ_TABLE_INDEX_add_SORT",
+        "description": "READ TABLE ... INDEX ...; add a SORT of the internal table before the READ.",
+        "type": "regex",
+        "pattern": "\\bREAD\\s+TABLE\\s+(\\w[\\w_]*)\\b([\\s\\S]*?\\bINDEX\\s+[^.]+)\\.",
+        "case_sensitive": false,
+        "suggested_replacement": "SORT $1.\nREAD TABLE $1$2."
+    },
+    {
+        "id": "READ_TABLE_WITH_KEY_FIELDS_add_SORT",
+        "description": "READ TABLE ... WITH KEY f1 = ... f2 = ...; add SORT BY those fields before the READ.",
+        "type": "regex",
+        "pattern": "\\bREAD\\s+TABLE\\s+(\\w[\\w_]*)\\b([\\s\\S]*?\\bWITH\\s+KEY\\s+)(([A-Za-z_][\\w~\\-]*)\\s*=\\s*[^\\s.]+\\s+([A-Za-z_][\\w~\\-]*)\\s*=\\s*[^\\s.]+)([\\s\\S]*?)\\.",
+        "case_sensitive": false,
+        "suggested_replacement": "SORT $1 BY $4 $5.\nREAD TABLE $1$2$3$6."
+    },
+    {
+        "id": "READ_TABLE_WITH_TABLE_KEY_FIELDS_add_SORT",
+        "description": "READ TABLE ... WITH TABLE KEY keyname [COMPONENTS] f1 = ... f2 = ...; add SORT BY fields (not the key name) before the READ.",
+        "type": "regex",
+        "pattern": "\\bREAD\\s+TABLE\\s+(\\w[\\w_]*)\\b([\\s\\S]*?\\bWITH\\s+TABLE\\s+KEY\\s+)([A-Za-z_][\\w_]*)\\s+(?:COMPONENTS\\s+)?(([A-Za-z_][\\w~\\-]*)\\s*=\\s*[^\\s.]+\\s+([A-Za-z_][\\w~\\-]*)\\s*=\\s*[^\\s.]+)([\\s\\S]*?)\\.",
+        "case_sensitive": false,
+        "suggested_replacement": "SORT $1 BY $5 $6.\nREAD TABLE $1$2$3 $4$7."
+    }
+]

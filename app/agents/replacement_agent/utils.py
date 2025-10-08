@@ -41,8 +41,8 @@ def scan_code_for_patterns(code: str, patterns: List[Dict[str, Any]]) -> List[Di
             "pattern": pattern_text,
             "type": ptype,
             "case_sensitive": case_sensitive,
-            "suggested_replacement": p.get("suggested_replacement", ""),
-            "occurrences": occurrences
+            "suggested_replacement": p.get("suggested_replacement", "")
+            # "occurrences": occurrences
         })
     return findings
 
