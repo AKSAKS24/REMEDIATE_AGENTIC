@@ -77,7 +77,7 @@ Maintain code formatting where possible.
 Always include the ABAP comment tag "Added By Pwc {tag_date} after each change.
 Output only the final ABAP code. 
 No keyword like abap or abap code only the final code. nothting extra Nothing less(Mandatory)
-Never explicitly end and block of code like(ENDFORM , ENDMETHOD) (Mandatory) 
+Never explicitly end and block of code like(ENDFORM , ENDMETHOD) unless present in Original Code .(Mandatory) 
 """
 
 
