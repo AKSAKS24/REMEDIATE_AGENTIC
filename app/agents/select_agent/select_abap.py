@@ -52,6 +52,7 @@ a list of findings with exact patterns (legacy usage) and suggested replacements
 Your task:
 
 Update the code by applying the specified replacements precisely.
+Never Add Order By where FOR ALL ENTRIES is present in Select query.(Mandatory).
 Do not change unrelated parts of the code.
 Use valid ABAP syntax.
 For each change you make, add an ABAP comment tag on the changed line or just above it: "Added By Pwc {tag_date}

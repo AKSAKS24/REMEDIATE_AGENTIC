@@ -3,32 +3,48 @@
         "id": "SELECT_SINGLE_FIELD_LIST_ANYLINE",
         "description": "SELECT SINGLE with explicit field list; optional INTO/WHERE/ORDER BY; multiline.",
         "type": "regex",
-        "pattern": "SELECT\\s+SINGLE\\s+(?!\\)\\s([\\s\\S]+?)\\s+FROM\\s+([\\s\\S]+?)(?=(?:\\s+INTO\\b|\\s+WHERE\\b|\\s+ORDER\\s+BY\\b|\\s*\\.))((?:\\s+INTO\\s+(?:(?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:@?DATA\\([^\\)]+\\)|@?[\\w<>\\-]+))))?((?:\\s+WHERE\\s+[\\s\\S]+?(?=(?:\\s+ORDER\\s+BY\\b|\\s*\\.)))?)((?:\\s+ORDER\\s+BY\\s+[\\s\\S]+?(?=\\s*\\.))?)\\.(?=\\s|$)",
+        "pattern": "\\bSELECT\\s+SINGLE\\s+(?!\\*)(?!\\()([\\s\\S]+?)\\s+FROM\\s+([\\s\\S]+?)(?=(?:\\s+INTO\\b|\\s+WHERE\\b|\\s+ORDER\\s+BY\\b|\\s*\\.))((?:\\s+INTO\\s+(?:(?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:@?DATA\\([^)]+\\)|@?[\\w<>-]+))))?((?:\\s+WHERE\\s+[\\s\\S]+?(?=(?:\\s+ORDER\\s+BY\\b|\\s*\\.)))?)((?:\\s+ORDER\\s+BY\\s+[\\s\\S]+?(?=\\s*\\.))?)\\.(?=\\s|$)",
         "case_sensitive": false,
-        "suggested_replacement": "SELECT $1 FROM $2$3 UP TO 1 ROWS$4$5. ENDSELECT."
+        "suggested_replacement": "SELECT $1 FROM $2$3 UP TO 1 ROWS$4$5 ORDER BY $1. ENDSELECT."
     },
     {
         "id": "SELECT_SINGLE_STAR_ANYLINE",
-        "description": "SELECT SINGLE ; optional INTO/WHERE/ORDER BY; multiline.",
+        "description": "SELECT SINGLE *; optional INTO/WHERE/ORDER BY; multiline.",
         "type": "regex",
-        "pattern": "SELECT\\s+SINGLE\\s+\\\\s+FROM\\s+([\\s\\S]+?)(?=(?:\\s+INTO\\b|\\s+WHERE\\b|\\s+ORDER\\s+BY\\b|\\s*\\.))((?:\\s+INTO\\s+(?:(?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:@?DATA\\([^\\)]+\\)|@?[\\w<>\\-]+))))?((?:\\s+WHERE\\s+[\\s\\S]+?(?=(?:\\s+ORDER\\s+BY\\b|\\s*\\.)))?)((?:\\s+ORDER\\s+BY\\s+[\\s\\S]+?(?=\\s*\\.))?)\\.(?=\\s|$)",
+        "pattern": "\\bSELECT\\s+SINGLE\\s+\\*\\s+FROM\\s+([\\s\\S]+?)(?=(?:\\s+INTO\\b|\\s+WHERE\\b|\\s+ORDER\\s+BY\\b|\\s*\\.))((?:\\s+INTO\\s+(?:(?:CORRESPONDING\\s+FIELDS\\s+OF\\s+)?(?:@?DATA\\([^)]+\\)|@?[\\w<>-]+))))?((?:\\s+WHERE\\s+[\\s\\S]+?(?=(?:\\s+ORDER\\s+BY\\b|\\s*\\.)))?)((?:\\s+ORDER\\s+BY\\s+[\\s\\S]+?(?=\\s*\\.))?)\\.(?=\\s|$)",
         "case_sensitive": false,
-        "suggested_replacement": "SELECT * FROM $1$2 UP TO 1 ROWS$3$4. ENDSELECT."
+        "suggested_replacement": "SELECT * FROM $1$2 UP TO 1 ROWS$3$4 ORDER BY PRIMARY KEY. ENDSELECT."
     },
     {
         "id": "SELECT_NO_FAE_FIELD_LIST_ANYLINE",
-        "description": "SELECT (not SINGLE) with explicit field list into an internal table; optional WHERE/ORDER BY; multiline.",
+        "description": "Matches SELECT (not SINGLE), not FOR ALL ENTRIES, and without ORDER BY. Handles explicit field list and various INTO/WHERE/GROUP BY/HAVING/UP TO forms. Multiline.",
         "type": "regex",
-        "pattern": "SELECT\\s+(?!SINGLE\\b)\\s*(?!\\)\\s([\\s\\S]+?)\\s+FROM\\s+([\\s\\S]+?)(?=(?:\\s+INTO\\b|\\s+WHERE\\b|\\s+ORDER\\s+BY\\b|\\s*\\.))\\s+INTO\\s+((?:APPENDING\\s+TABLE)|(?:CORRESPONDING\\s+FIELDS\\s+OF\\s+TABLE)|(?:TABLE))\\s+(@?DATA\\([^\\)]+\\)|@?[\\w<>\\-]+)((?:\\s+WHERE\\s+[\\s\\S]+?(?=(?:\\s+ORDER\\s+BY\\b|\\s*\\.)))?)((?:\\s+ORDER\\s+BY\\s+[\\s\\S]+?(?=\\s*\\.))?)\\.(?=\\s|$)",
+        "pattern": "\\bSELECT\\s+(?!SINGLE\\b)(?![^.]\\bFOR\\s+ALL\\s+ENTRIES\\b)(?![^.]\\bORDER\\s+BY\\b)\\s+([\\s\\S]+?)\\s+FROM\\s+([\\s\\S]+?)(?=(?:\\s+INTO\\b|\\s+WHERE\\b|\\s+GROUP\\s+BY\\b|\\s+HAVING\\b|\\s+UP\\s+TO\\b|\\s*\\.))([\\s\\S]*?)\\.(?=\\s|$)",
         "case_sensitive": false,
-        "suggested_replacement": "SELECT $1 FROM $2 INTO $3 $4$5$6. ENDSELECT."
+        "suggested_replacement": "SELECT $1 FROM $2$3 ORDER BY $1."
     },
     {
         "id": "SELECT_NO_FAE_STAR_ANYLINE",
-        "description": "SELECT * (not SINGLE) into an internal table; optional WHERE/ORDER BY; multiline.",
+        "description": "Matches SELECT * (not SINGLE), not FOR ALL ENTRIES, and without ORDER BY. Handles various INTO/WHERE/GROUP BY/HAVING/UP TO forms. Multiline.",
         "type": "regex",
-        "pattern": "SELECT\\s+(?!SINGLE\\b)\\\\s+FROM\\s+([\\s\\S]+?)(?=(?:\\s+INTO\\b|\\s+WHERE\\b|\\s+ORDER\\s+BY\\b|\\s\\.))\\s+INTO\\s+((?:APPENDING\\s+TABLE)|(?:CORRESPONDING\\s+FIELDS\\s+OF\\s+TABLE)|(?:TABLE))\\s+(@?DATA\\([^\\)]+\\)|@?[\\w<>\\-]+)((?:\\s+WHERE\\s+[\\s\\S]+?(?=(?:\\s+ORDER\\s+BY\\b|\\s*\\.)))?)((?:\\s+ORDER\\s+BY\\s+[\\s\\S]+?(?=\\s*\\.))?)\\.(?=\\s|$)",
+        "pattern": "\\bSELECT\\s+(?!SINGLE\\b)(?![^.]\\bFOR\\s+ALL\\s+ENTRIES\\b)(?![^.]\\bORDER\\s+BY\\b)\\s+\\*\\s+FROM\\s+([\\s\\S]+?)(?=(?:\\s+INTO\\b|\\s+WHERE\\b|\\s+GROUP\\s+BY\\b|\\s+HAVING\\b|\\s+UP\\s+TO\\b|\\s*\\.))([\\s\\S]*?)\\.(?=\\s|$)",
         "case_sensitive": false,
-        "suggested_replacement": "SELECT * FROM $1 INTO $2 $3$4$5.ENDSELECT."
+        "suggested_replacement": "SELECT * FROM $1$2 ORDER BY PRIMARY KEY."
+    },
+    {
+        "id": "SELECT_NOT_SINGLE_STAR",
+        "description": "Matches any ABAP SELECT statement that does NOT start with SELECT SINGLE *.",
+        "type": "regex",
+        "pattern": "(?im)^\\s*SELECT(?!\\s+SINGLE\\s+\\*\\b)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT * FROM $1$2 ORDER BY PRIMARY KEY."
+    },
+    {
+        "id": "SELECT_NOT_SINGLE_FIELDS",
+        "description": "Matches any ABAP SELECT statement that does NOT start with SELECT SINGLE [fields].",
+        "type": "regex",
+        "pattern": "(?im)^\\s*SELECT(?!\\s+SINGLE\\s+[^*\\s][A-Za-z0-9_,\\s]*)",
+        "case_sensitive": false,
+        "suggested_replacement": "SELECT $1 FROM $2$3 ORDER BY $1."
     }
 ]
